@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-
+#改过的代码
 def safe():
     url = "https://yqfkfw.haust.edu.cn/smart-boot/api/healthReport/saveHealthReport"
     nowday = time.strftime("%Y-%m-%d ", time.localtime())+'00:10:14'
