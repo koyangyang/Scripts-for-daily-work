@@ -19,15 +19,15 @@ def safe():
         "phone": "填入手机号",
         "needUpdate": 1
     })
-    headers ={
+    header ={
         'Content-Type': 'application/json',
         'X-Id-Token': '填入token'
     }
-    for h in headers:
-        response = requests.request("POST", url, headers=h, data=payload)
-        content=response.text[:-1]+',"time":'+nowday+"}"
-        #开启推送请取消下面一行注释
-        #push_wechat(content)
+    
+    response = requests.request("POST", url, headers=header, data=payload)
+    content=response.text[:-1]+',"time":'+nowday+"}"
+    #开启推送请取消下面一行注释
+    #push_wechat(content)
 
 
 def push_wechat(content):
@@ -36,6 +36,6 @@ def push_wechat(content):
     push_url = "http://www.pushplus.plus/send?token=" + token + "&title=报平安信息&content=" + content + "&template=json"
     requests.get(url=push_url)
 
-
+#本程序放在腾讯云函数内执行
 def main_handler(event, context):    
     safe()
