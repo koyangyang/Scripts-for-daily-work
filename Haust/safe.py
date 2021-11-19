@@ -19,12 +19,14 @@ def safe():
         "phone": "",
         "needUpdate": 1
     })
-    headers = [{
+    headers = {
         'Content-Type': 'application/json',
         #将token放在这里
         'X-Id-Token': ''
-    },{}]
+    }
+
     response = requests.request("POST", url, headers=headers, data=payload)
+    
     #选择开启微信推送
     #push_wechat(response.text)
     return response.text

@@ -23,11 +23,11 @@ def safe():
         'Content-Type': 'application/json',
         'X-Id-Token': '填入token'
     }
-    for h in headers:
-        response = requests.request("POST", url, headers=h, data=payload)
-        content=response.text[:-1]+',"time":'+nowday+"}"
-        #开启推送请取消下面一行注释
-        #push_wechat(content)
+    response = requests.request("POST", url, headers=headers, data=payload)
+    content=response.text[:-1]+',"time":'+nowday+"}"
+    
+    #开启推送请取消下面一行注释
+    #push_wechat(content)
 
 
 def push_wechat(content):
