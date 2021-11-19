@@ -2,6 +2,7 @@ import requests
 import json
 import time
 
+#本程序添加个人信息后可以直接运行
 def safe():
     url = "https://yqfkfw.haust.edu.cn/smart-boot/api/healthReport/saveHealthReport"
     nowday = time.strftime("%Y-%m-%d ", time.localtime())+'00:10:14'
@@ -30,7 +31,7 @@ def safe():
 
 
 def push_wechat(content):
-    #推送token
+    #在这填入自己的推送token(微信关注pushplus公众号获取)
     token = ''
 
     push_url = "http://www.pushplus.plus/send?token=" + token + "&title=报平安信息&content=" + content + "&template=json"
